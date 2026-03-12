@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "PantryPal",
+    "slug": "pantrypal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "pantrypal",
+    "splash": {
+      "backgroundColor": "#F97316"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pantrypal"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F97316"
+      },
+      "package": "com.pantrypal"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow PantryPal to access your camera to scan pantry items."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#F97316"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
