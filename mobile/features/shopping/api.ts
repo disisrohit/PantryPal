@@ -3,7 +3,7 @@ import { ShoppingList, DeepLinksResponse } from './types';
 import { GuestAdjustment } from '../pantry/types';
 
 export const shoppingApi = {
-  async generateList(guestAdjustment?: GuestAdjustment): Promise<{ list: ShoppingList }> {
+  async generateList(guestAdjustment?: GuestAdjustment): Promise<{ list: ShoppingList | null; message?: string }> {
     const { data } = await apiClient.post('/shopping/generate', { guestAdjustment });
     return data;
   },

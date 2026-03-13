@@ -14,7 +14,7 @@ router.post('/generate', auth, async (req, res) => {
     const restockItems = await getRestockItems(req.userId);
 
     if (restockItems.length === 0) {
-      return res.json({ message: 'Your pantry is fully stocked!', items: [] });
+      return res.status(200).json({ list: null, message: 'Your pantry is fully stocked! No items are running low.' });
     }
 
     const household = req.user.household || {};

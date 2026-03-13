@@ -74,8 +74,8 @@ router.post('/apply-template', auth, async (req, res) => {
       return res.status(404).json({ error: 'Template not found' });
     }
 
-    // Scale items for household
-    const scaledItems = scaleTemplate(template.items, req.user.household || {});
+    // Scale items for household (toObject() to convert Mongoose subdocs to plain JS)
+    const scaledItems = scaleTemplate(template.toObject().items, req.user.household || {});
 
     // Apply any customizations from the user
     const customMap = {};

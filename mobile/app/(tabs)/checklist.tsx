@@ -28,10 +28,12 @@ export default function ChecklistScreen() {
     try {
       await generateList(guestAdjustment.enabled ? guestAdjustment : undefined);
     } catch (error: any) {
-      if (error?.response?.data?.message) {
-        Alert.alert('All Stocked!', error.response.data.message);
+      if (error?.fullyStocked) {
+        Alert.alert('All Stocked! 🎉', error.message);
+      } else if (error?.response?.data?.message) {
+        Alert.alert('Info', error.response.data.message);
       } else {
-        Alert.alert('Error', 'Failed to generate shopping list');
+        Alert.alert('Error', 'Failed to generate shopping list. Please try again.');
       }
     }
   };

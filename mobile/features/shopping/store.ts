@@ -26,8 +26,12 @@ export const useShoppingStore = create<ShoppingState>((set, get) => ({
   generateList: async (guestAdjustment) => {
     set({ isGenerating: true });
     try {
-      const { list } = await shoppingApi.generateList(guestAdjustment);
-      set({ currentList: list, isGenerating: false });
+      const data = await shoppingApi.generateList(guestAdjustment);
+      if (!data.list) {
+        set({ isGenerating: false });
+        throw { fullyStocked: true, message: data.message || 'Your pantry is fully stocked!' };
+      }
+      set({ currentList: data.list, isGenerating: false });
     } catch (error) {
       set({ isGenerating: false });
       throw error;

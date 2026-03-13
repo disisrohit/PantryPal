@@ -9,10 +9,12 @@
     "splash": {
       "backgroundColor": "#F97316"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.pantrypal"
+      "bundleIdentifier": "com.disisrohit.pantrypal"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,12 +31,7 @@
           "cameraPermission": "Allow PantryPal to access your camera to scan pantry items."
         }
       ],
-      [
-        "expo-notifications",
-        {
-          "color": "#F97316"
-        }
-      ]
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
